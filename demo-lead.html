@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gratis Kennismaking | AI Automatisering</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid #6366f1;
+      color: #a5b4fc;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* Voordelen */
+    .benefits {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+
+    .benefit span { font-size: 18px; }
+
+    /* Main content */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .container { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* Left side */
+    .left h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: #f1f5f9;
+    }
+
+    .feature {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .feature-text h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #f1f5f9;
+    }
+
+    .feature-text p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .timeline {
+      margin-top: 40px;
+      padding: 24px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 16px;
+    }
+
+    .timeline h3 {
+      font-size: 15px;
+      color: #a5b4fc;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      background: #6366f1;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* Form */
+    .form-card {
+      background: #1e1e3a;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .form-card h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .form-card .subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 15px;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #6366f1;
+      background: rgba(99, 102, 241, 0.05);
+    }
+
+    input::placeholder, textarea::placeholder { color: #4b5563; }
+
+    select option { background: #1e1e3a; }
+
+    textarea { height: 100px; resize: none; }
+
+    .btn {
+      width: 100%;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .privacy {
+      text-align: center;
+      font-size: 12px;
+      color: #4b5563;
+      margin-top: 16px;
+    }
+
+    /* Success */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+
+    .success h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .success p {
+      color: #94a3b8;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .success .steps {
+      margin-top: 24px;
+      text-align: left;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .success .steps p {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #6ee7b7;
+    }
+
+    .success .steps p:last-child { margin-bottom: 0; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #374151;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="badge">🤖 AI-Gedreven Automatisering</div>
+    <h1>Stop met handmatig<br><span>leads opvolgen</span></h1>
+    <p>Wij automatiseren jouw lead opvolging zodat elke potentiële klant direct en professioneel wordt opgevolgd — zonder dat jij er iets voor hoeft te doen.</p>
+    <div class="benefits">
+      <div class="benefit"><span>⚡</span> Directe reactie</div>
+      <div class="benefit"><span>📅</span> Automatische follow-up</div>
+      <div class="benefit"><span>📊</span> Alles bijgehouden</div>
+      <div class="benefit"><span>💰</span> Meer conversie</div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="left">
+      <h2>Wat krijg je na aanmelding?</h2>
+
+      <div class="feature">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <h3>Directe bevestigingsmail</h3>
+          <p>Jouw lead ontvangt binnen seconden een professionele bevestiging — zodat ze weten dat hun bericht is ontvangen.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📲</div>
+        <div class="feature-text">
+          <h3>Notificatie op jouw telefoon</h3>
+          <p>Jij krijgt direct een melding via Telegram met alle gegevens van de nieuwe lead.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <div class="feature-text">
+          <h3>Opgeslagen in jouw CRM</h3>
+          <p>Alle leads worden automatisch opgeslagen in Google Sheets — altijd overzichtelijk en bijgehouden.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-text">
+          <h3>Automatische follow-up</h3>
+          <p>Na 1 dag en na 4 dagen ontvangt de lead automatisch een opvolgmail — zonder dat jij er aan hoeft te denken.</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <h3>Wat er automatisch gebeurt</h3>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div><strong>Direct:</strong> Bevestigingsmail + Telegram notificatie</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div><strong>Na 1 dag:</strong> Follow-up met extra informatie</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div><strong>Na 4 dagen:</strong> Uitnodiging voor een afspraak</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="form-card">
+        <div id="formSection">
+          <h2>Gratis demo aanvragen</h2>
+          <p class="subtitle">Vul je gegevens in en ervaar het zelf</p>
+
+          <form id="leadForm">
+            <div class="form-group">
+              <label>Jouw naam *</label>
+              <input type="text" id="naam" placeholder="Jan Jansen" required>
+            </div>
+            <div class="form-group">
+              <label>E-mailadres *</label>
+              <input type="email" id="email" placeholder="jan@bedrijf.nl" required>
+            </div>
+            <div class="form-group">
+              <label>Telefoonnummer</label>
+              <input type="tel" id="telefoon" placeholder="06 12 34 56 78">
+            </div>
+            <div class="form-group">
+              <label>Jouw bedrijfstype</label>
+              <select id="bron">
+                <option value="website">Website</option>
+                <option value="kapper">Kapper / Schoonheidssalon</option>
+                <option value="restaurant">Restaurant / Horeca</option>
+                <option value="webshop">Webshop</option>
+                <option value="coach">Coach / Trainer</option>
+                <option value="anders">Anders</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Wat wil je automatiseren?</label>
+              <textarea id="bericht" placeholder="Bijv: ik wil dat nieuwe klanten automatisch een bevestiging krijgen..."></textarea>
+            </div>
+            <button type="submit" class="btn" id="submitBtn">
+              🚀 Stuur mijn aanvraag
+            </button>
+            <p class="privacy">🔒 Je gegevens worden nooit gedeeld met derden</p>
+          </form>
+        </div>
+
+        <div class="success" id="successSection">
+          <div class="success-icon">✅</div>
+          <h3>Aanvraag ontvangen!</h3>
+          <p>Bedankt! Je ontvangt zo dadelijk een bevestigingsmail. We nemen binnen 24 uur contact met je op.</p>
+          <div class="steps">
+            <p>📧 Check je inbox voor de bevestiging</p>
+            <p>📅 Morgen ontvang je meer informatie</p>
+            <p>🤝 Binnen 4 dagen plannen we een afspraak</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Gebouwd met n8n & AI automatisering · Demo pagina
+  </footer>
+
+  <script>
+    const WEBHOOK_URL = 'https://jc13.app.n8n.cloud/webhook/lead-opvolging';
+
+    document.getElementById('leadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '⏳ Bezig met versturen...';
+
+      const data = {
+        naam: document.getElementById('naam').value,
+        email: document.getElementById('email').value,
+        telefoon: document.getElementById('telefoon').value,
+        bron: document.getElementById('bron').value,
+        bericht: document.getElementById('bericht').value || 'Geen bericht opgegeven'
+      };
+
+      try {
+        const response = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          document.getElementById('formSection').style.display = 'none';
+          document.getElementById('successSection').style.display = 'block';
+        } else {
+          throw new Error('Fout');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = '🚀 Stuur mijn aanvraag';
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    });
+  </script>
+
+</body>
+</html>
